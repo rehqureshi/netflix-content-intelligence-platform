@@ -31,6 +31,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   netflix_dbt:
+
     staging:
       +schema: STAGING
       +materialized: view
@@ -38,9 +39,17 @@ models:
     intermediate:
       +schema: STAGING
       +materialized: view
-    
+
     marts:
       +schema: ANALYTICS
-      +materialized: table
+
+      dimensions:
+        +materialized: table
+
+      fact:
+        +materialized: table
+
+      bridges:
+        +materialized: table
     # Config indicated by + and applies to all files under models/example/
    

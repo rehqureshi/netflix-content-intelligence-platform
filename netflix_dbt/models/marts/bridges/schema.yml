@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: bridge_content_actor
+    description: Bridge table connecting content with actors.
+    columns:
+      - name: CONTENT_ID
+        tests:
+          - not_null
+      - name: PERSON_ID
+        tests:
+          - not_null
+
+  - name: bridge_content_director
+    description: Bridge table connecting content with directors.
+    columns:
+      - name: CONTENT_ID
+        tests:
+          - not_null
+      - name: PERSON_ID
+        tests:
+          - not_null
+
+  - name: bridge_content_genre
+    description: Bridge table connecting content with genres.
+    columns:
+      - name: CONTENT_ID
+        tests:
+          - not_null
+      - name: GENRE
+        tests:
+          - not_null
+
+  - name: bridge_content_country
+    description: Bridge table connecting content with production countries.
+    columns:
+      - name: CONTENT_ID
+        tests:
+          - not_null
+      - name: COUNTRY
+        tests:
+          - not_null
