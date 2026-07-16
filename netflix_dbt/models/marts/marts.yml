@@ -1,0 +1,24 @@
+version: 2
+
+models:
+
+  - name: fact_content
+    description: Central fact table containing Netflix titles.
+
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_genre
+    description: Genre dimension.
+
+  - name: dim_country
+    description: Country dimension.
+
+  - name: dim_actor
+    description: Actor dimension.
+
+  - name: dim_director
+    description: Director dimension.

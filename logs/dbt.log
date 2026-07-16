@@ -1,0 +1,174 @@
+[0m01:23:19.310775 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d2abaa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d9446e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d944290>]}
+
+
+============================== 01:23:19.315033 | 2b2384f7-6bd5-4333-b3d5-821190ac8c7e ==============================
+[0m01:23:19.315033 [info ] [MainThread]: Running with dbt=1.11.12
+[0m01:23:19.315495 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'partial_parse': 'True', 'target_path': 'None', 'log_path': 'logs', 'no_print': 'None', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'None', 'printer_width': '80', 'fail_fast': 'False', 'use_colors': 'True', 'version_check': 'True', 'use_experimental_parser': 'False', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt init netflix_dbt', 'log_format': 'default', 'quiet': 'False', 'static_parser': 'True', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '/Users/rehanqureshi/.dbt', 'write_json': 'True', 'indirect_selection': 'eager', 'introspect': 'True'}
+[0m01:23:19.327808 [info ] [MainThread]: Creating dbt configuration folder at /Users/rehanqureshi/.dbt
+[0m01:23:19.329354 [debug] [MainThread]: Starter project path: /Users/rehanqureshi/Desktop/Netflix-Content-Intelligence-Platform/venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m01:23:19.334970 [info ] [MainThread]: 
+Your new dbt project "netflix_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m01:23:19.335233 [info ] [MainThread]: Setting up your profile.
+[0m01:24:20.211363 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m01:24:20.212526 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m01:24:20.212786 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m01:31:06.662930 [info ] [MainThread]: Profile netflix_dbt written to /Users/rehanqureshi/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m01:31:06.692743 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 467.46603, "process_in_blocks": "0", "process_kernel_time": 0.357782, "process_mem_max_rss": "109232128", "process_out_blocks": "0", "process_user_time": 1.331345}
+[0m01:31:06.695346 [debug] [MainThread]: Command `dbt init` succeeded at 01:31:06.695128 after 467.47 seconds
+[0m01:31:06.696402 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e4072f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e476120>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10da98ad0>]}
+[0m01:31:06.697271 [debug] [MainThread]: Flushing usage events
+[0m01:31:07.908248 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m01:44:21.908410 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ae906b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c010650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c010320>]}
+
+
+============================== 01:44:21.913260 | 4f9b5f96-2c7a-489e-8fdc-b9a792b485d6 ==============================
+[0m01:44:21.913260 [info ] [MainThread]: Running with dbt=1.11.12
+[0m01:44:21.913747 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'quiet': 'False', 'introspect': 'True', 'empty': 'None', 'no_print': 'None', 'profiles_dir': '/Users/rehanqureshi/.dbt', 'partial_parse': 'True', 'warn_error': 'None', 'indirect_selection': 'eager', 'write_json': 'True', 'log_path': 'logs', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'log_cache_events': 'False', 'debug': 'False', 'printer_width': '80', 'fail_fast': 'False', 'use_experimental_parser': 'False', 'target_path': 'None', 'invocation_command': 'dbt debug', 'use_colors': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'static_parser': 'True'}
+[0m01:44:21.927123 [info ] [MainThread]: dbt version: 1.11.12
+[0m01:44:21.927408 [info ] [MainThread]: python version: 3.12.13
+[0m01:44:21.927621 [info ] [MainThread]: python path: /Users/rehanqureshi/Desktop/Netflix-Content-Intelligence-Platform/venv/bin/python3.12
+[0m01:44:21.927825 [info ] [MainThread]: os info: macOS-26.5.2-arm64-arm-64bit
+[0m01:44:22.243928 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m01:44:22.244348 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m01:44:22.244591 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m01:44:22.335622 [info ] [MainThread]: Using profiles dir at /Users/rehanqureshi/.dbt
+[0m01:44:22.336013 [info ] [MainThread]: Using profiles.yml file at /Users/rehanqureshi/.dbt/profiles.yml
+[0m01:44:22.336232 [info ] [MainThread]: Using dbt_project.yml file at /Users/rehanqureshi/Desktop/Netflix-Content-Intelligence-Platform/dbt_project.yml
+[0m01:44:22.337269 [info ] [MainThread]: adapter type: snowflake
+[0m01:44:22.338771 [info ] [MainThread]: adapter version: 1.11.6
+[0m01:44:22.339001 [info ] [MainThread]: Configuration:
+[0m01:44:22.339194 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m01:44:22.339374 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m01:44:22.339543 [info ] [MainThread]: Required dependencies:
+[0m01:44:22.339782 [debug] [MainThread]: Executing "git --help"
+[0m01:44:22.362828 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m01:44:22.363484 [debug] [MainThread]: STDERR: "b''"
+[0m01:44:22.363738 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m01:44:22.363984 [info ] [MainThread]: Connection:
+[0m01:44:22.364256 [info ] [MainThread]:   account: MHYIHBA-LX19273
+[0m01:44:22.364455 [info ] [MainThread]:   user: REHAN
+[0m01:44:22.364633 [info ] [MainThread]:   database: NETFLIX_DB
+[0m01:44:22.364811 [info ] [MainThread]:   warehouse: NETFLIX_WH
+[0m01:44:22.364980 [info ] [MainThread]:   role: ACCOUNTADMIN
+[0m01:44:22.365149 [info ] [MainThread]:   schema: STAGING
+[0m01:44:22.365315 [info ] [MainThread]:   authenticator: None
+[0m01:44:22.365482 [info ] [MainThread]:   oauth_client_id: None
+[0m01:44:22.365645 [info ] [MainThread]:   query_tag: None
+[0m01:44:22.365811 [info ] [MainThread]:   client_session_keep_alive: False
+[0m01:44:22.365979 [info ] [MainThread]:   host: None
+[0m01:44:22.366143 [info ] [MainThread]:   port: None
+[0m01:44:22.366306 [info ] [MainThread]:   proxy_host: None
+[0m01:44:22.366475 [info ] [MainThread]:   proxy_port: None
+[0m01:44:22.366637 [info ] [MainThread]:   protocol: None
+[0m01:44:22.366805 [info ] [MainThread]:   connect_retries: 1
+[0m01:44:22.366966 [info ] [MainThread]:   connect_timeout: None
+[0m01:44:22.367127 [info ] [MainThread]:   retry_on_database_errors: False
+[0m01:44:22.367297 [info ] [MainThread]:   retry_all: False
+[0m01:44:22.367458 [info ] [MainThread]:   insecure_mode: False
+[0m01:44:22.367617 [info ] [MainThread]:   reuse_connections: True
+[0m01:44:22.367781 [info ] [MainThread]:   s3_stage_vpce_dns_name: None
+[0m01:44:22.367944 [info ] [MainThread]:   platform_detection_timeout_seconds: 0.0
+[0m01:44:22.368410 [info ] [MainThread]: Registered adapter: snowflake=1.11.6
+[0m01:44:22.478185 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m01:44:22.534818 [debug] [MainThread]: Using snowflake connection "debug"
+[0m01:44:22.535146 [debug] [MainThread]: On debug: select 1 as id
+[0m01:44:22.535368 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m01:44:24.132103 [debug] [MainThread]: SQL status: SUCCESS 1 in 1.596 seconds
+[0m01:44:24.135429 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m01:44:24.136175 [info ] [MainThread]: [31m1 check failed:[0m
+[0m01:44:24.136626 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </Users/rehanqureshi/Desktop/Netflix-Content-Intelligence-Platform/dbt_project.yml> not found
+
+[0m01:44:24.144989 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 2.310296, "process_in_blocks": "0", "process_kernel_time": 0.411805, "process_mem_max_rss": "162742272", "process_out_blocks": "0", "process_user_time": 1.873597}
+[0m01:44:24.145843 [debug] [MainThread]: Command `dbt debug` failed at 01:44:24.145659 after 2.31 seconds
+[0m01:44:24.146372 [debug] [MainThread]: Connection 'debug' was left open.
+[0m01:44:24.146776 [debug] [MainThread]: On debug: Close
+[0m01:44:24.385296 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b28ca40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dbca030>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103012bd0>]}
+[0m01:44:24.386702 [debug] [MainThread]: Flushing usage events
+[0m01:44:25.694246 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m01:45:14.841531 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d09c590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d7a4530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d7a4200>]}
+
+
+============================== 01:45:14.846283 | fa38bdb1-9f83-49e2-91cd-2ab1bb6e7f88 ==============================
+[0m01:45:14.846283 [info ] [MainThread]: Running with dbt=1.11.12
+[0m01:45:14.846749 [debug] [MainThread]: running dbt with arguments {'send_anonymous_usage_stats': 'True', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'quiet': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'profiles_dir': '/Users/rehanqureshi/.dbt', 'introspect': 'True', 'use_colors': 'True', 'target_path': 'None', 'no_print': 'None', 'invocation_command': 'dbt debug', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': 'logs', 'version_check': 'True', 'log_format': 'default', 'static_parser': 'True', 'write_json': 'True', 'printer_width': '80', 'warn_error': 'None', 'partial_parse': 'True', 'debug': 'False'}
+[0m01:45:14.860341 [info ] [MainThread]: dbt version: 1.11.12
+[0m01:45:14.860623 [info ] [MainThread]: python version: 3.12.13
+[0m01:45:14.860856 [info ] [MainThread]: python path: /Users/rehanqureshi/Desktop/Netflix-Content-Intelligence-Platform/venv/bin/python3.12
+[0m01:45:14.861067 [info ] [MainThread]: os info: macOS-26.5.2-arm64-arm-64bit
+[0m01:45:15.176316 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m01:45:15.176747 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m01:45:15.176995 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m01:45:15.269086 [info ] [MainThread]: Using profiles dir at /Users/rehanqureshi/.dbt
+[0m01:45:15.269468 [info ] [MainThread]: Using profiles.yml file at /Users/rehanqureshi/.dbt/profiles.yml
+[0m01:45:15.269693 [info ] [MainThread]: Using dbt_project.yml file at /Users/rehanqureshi/Desktop/Netflix-Content-Intelligence-Platform/dbt_project.yml
+[0m01:45:15.270408 [info ] [MainThread]: adapter type: snowflake
+[0m01:45:15.270676 [info ] [MainThread]: adapter version: 1.11.6
+[0m01:45:15.270899 [info ] [MainThread]: Configuration:
+[0m01:45:15.271093 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m01:45:15.271271 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m01:45:15.271441 [info ] [MainThread]: Required dependencies:
+[0m01:45:15.271684 [debug] [MainThread]: Executing "git --help"
+[0m01:45:15.294169 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m01:45:15.294848 [debug] [MainThread]: STDERR: "b''"
+[0m01:45:15.295087 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m01:45:15.295312 [info ] [MainThread]: Connection:
+[0m01:45:15.295574 [info ] [MainThread]:   account: MHYIHBA-LX19273
+[0m01:45:15.295760 [info ] [MainThread]:   user: REHAN
+[0m01:45:15.295939 [info ] [MainThread]:   database: NETFLIX_DB
+[0m01:45:15.296113 [info ] [MainThread]:   warehouse: NETFLIX_WH
+[0m01:45:15.296282 [info ] [MainThread]:   role: ACCOUNTADMIN
+[0m01:45:15.296452 [info ] [MainThread]:   schema: STAGING
+[0m01:45:15.296617 [info ] [MainThread]:   authenticator: None
+[0m01:45:15.296783 [info ] [MainThread]:   oauth_client_id: None
+[0m01:45:15.296947 [info ] [MainThread]:   query_tag: None
+[0m01:45:15.297112 [info ] [MainThread]:   client_session_keep_alive: False
+[0m01:45:15.297280 [info ] [MainThread]:   host: None
+[0m01:45:15.297447 [info ] [MainThread]:   port: None
+[0m01:45:15.297609 [info ] [MainThread]:   proxy_host: None
+[0m01:45:15.297780 [info ] [MainThread]:   proxy_port: None
+[0m01:45:15.297942 [info ] [MainThread]:   protocol: None
+[0m01:45:15.298104 [info ] [MainThread]:   connect_retries: 1
+[0m01:45:15.298267 [info ] [MainThread]:   connect_timeout: None
+[0m01:45:15.298426 [info ] [MainThread]:   retry_on_database_errors: False
+[0m01:45:15.298589 [info ] [MainThread]:   retry_all: False
+[0m01:45:15.298747 [info ] [MainThread]:   insecure_mode: False
+[0m01:45:15.298906 [info ] [MainThread]:   reuse_connections: True
+[0m01:45:15.299068 [info ] [MainThread]:   s3_stage_vpce_dns_name: None
+[0m01:45:15.299231 [info ] [MainThread]:   platform_detection_timeout_seconds: 0.0
+[0m01:45:15.299665 [info ] [MainThread]: Registered adapter: snowflake=1.11.6
+[0m01:45:15.411585 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m01:45:15.468464 [debug] [MainThread]: Using snowflake connection "debug"
+[0m01:45:15.468791 [debug] [MainThread]: On debug: select 1 as id
+[0m01:45:15.469016 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m01:45:16.781890 [debug] [MainThread]: SQL status: SUCCESS 1 in 1.313 seconds
+[0m01:45:16.785135 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m01:45:16.785833 [info ] [MainThread]: [31m1 check failed:[0m
+[0m01:45:16.786304 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </Users/rehanqureshi/Desktop/Netflix-Content-Intelligence-Platform/dbt_project.yml> not found
+
+[0m01:45:16.793545 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 2.0228326, "process_in_blocks": "0", "process_kernel_time": 0.410595, "process_mem_max_rss": "159514624", "process_out_blocks": "0", "process_user_time": 1.582634}
+[0m01:45:16.794441 [debug] [MainThread]: Command `dbt debug` failed at 01:45:16.794263 after 2.02 seconds
+[0m01:45:16.795039 [debug] [MainThread]: Connection 'debug' was left open.
+[0m01:45:16.795463 [debug] [MainThread]: On debug: Close
+[0m01:45:17.064488 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f8a3770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f1ba9c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e03dd30>]}
+[0m01:45:17.065437 [debug] [MainThread]: Flushing usage events
+[0m01:45:18.263718 [debug] [MainThread]: An error was encountered while trying to flush usage events

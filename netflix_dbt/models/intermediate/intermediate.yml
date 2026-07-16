@@ -1,0 +1,47 @@
+version: 2
+
+models:
+
+  - name: int_genre
+    description: One record per title and genre.
+
+    columns:
+
+      - name: id
+        tests:
+          - not_null
+
+      - name: genre
+        tests:
+          - not_null
+
+  - name: int_country
+    description: One record per title and production country.
+
+    columns:
+
+      - name: id
+        tests:
+          - not_null
+
+      - name: country
+        tests:
+          - not_null
+
+  - name: int_actor
+    description: One record per actor.
+
+    columns:
+
+      - name: person_id
+        tests:
+          - not_null
+
+  - name: int_director
+    description: One record per director.
+
+    columns:
+
+      - name: person_id
+        tests:
+          - not_null
