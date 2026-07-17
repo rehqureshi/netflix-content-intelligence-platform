@@ -1,11 +1,12 @@
 import streamlit as st
 import plotly.express as px
+from utils.ui import show_header
 
 from utils.queries import *
 
 st.set_page_config(layout="wide")
+show_header("Content Trends")
 
-st.title("📈 Content Trends")
 
 # ----------------------------------
 # Titles by Year
@@ -18,7 +19,8 @@ fig = px.line(
     x="RELEASE_YEAR",
     y="TOTAL",
     markers=True,
-    title="Titles Released by Year"
+    title="Titles Released by Year",
+    color_discrete_sequence=["#E50914"]
 )
 
 st.plotly_chart(fig, use_container_width=True)
@@ -35,7 +37,8 @@ fig = px.bar(
     y="TOTAL",
     color="TYPE",
     barmode="group",
-    title="Movies vs TV Shows by Year"
+    title="Movies vs TV Shows by Year",
+    color_discrete_sequence=["#E50914"]
 )
 
 st.plotly_chart(fig, use_container_width=True)
@@ -50,7 +53,8 @@ fig = px.histogram(
     runtime,
     x="RUNTIME",
     nbins=30,
-    title="Runtime Distribution"
+    title="Runtime Distribution",
+    color_discrete_sequence=["#E50914"]
 )
 
 st.plotly_chart(fig, use_container_width=True)
@@ -66,7 +70,8 @@ fig = px.line(
     x="RELEASE_YEAR",
     y="AVG_IMDB",
     markers=True,
-    title="Average IMDb Rating by Year"
+    title="Average IMDb Rating by Year",
+    color_discrete_sequence=["#E50914"]
 )
 
 st.plotly_chart(fig, use_container_width=True)

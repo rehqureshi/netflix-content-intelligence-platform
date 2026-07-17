@@ -208,3 +208,261 @@ def get_top_rated_titles():
                  IMDB_VOTES DESC
         LIMIT 20
     """)
+
+def get_catalog_details():
+    return run_query("""
+        SELECT
+            ID,
+            TITLE,
+            TYPE,
+            RELEASE_YEAR,
+            AGE_CERTIFICATION,
+            RUNTIME,
+            IMDB_SCORE,
+            TMDB_SCORE
+        FROM ANALYTICS.FACT_CONTENT
+        ORDER BY TITLE
+    """)
+
+def get_actors(content_id):
+    return run_query(f"""
+        SELECT
+            A.ACTOR_NAME
+        FROM ANALYTICS.BRIDGE_CONTENT_ACTOR B
+        JOIN ANALYTICS.DIM_ACTOR A
+            ON B.PERSON_ID = A.PERSON_ID
+        WHERE B.CONTENT_ID = '{content_id}'
+        ORDER BY A.ACTOR_NAME
+    """)
+
+def get_directors(content_id):
+    return run_query(f"""
+        SELECT
+            D.DIRECTOR_NAME
+        FROM ANALYTICS.BRIDGE_CONTENT_DIRECTOR B
+        JOIN ANALYTICS.DIM_DIRECTOR D
+            ON B.PERSON_ID = D.PERSON_ID
+        WHERE B.CONTENT_ID = '{content_id}'
+        ORDER BY D.DIRECTOR_NAME
+    """)
+
+def get_genres(content_id):
+    return run_query(f"""
+        SELECT
+            GENRE
+        FROM ANALYTICS.BRIDGE_CONTENT_GENRE
+        WHERE CONTENT_ID = '{content_id}'
+        ORDER BY GENRE
+    """)
+
+def get_countries(content_id):
+    return run_query(f"""
+        SELECT
+            COUNTRY
+        FROM ANALYTICS.BRIDGE_CONTENT_COUNTRY
+        WHERE CONTENT_ID = '{content_id}'
+        ORDER BY COUNTRY
+    """)
+
+def get_top_actors():
+
+    return run_query("""
+        SELECT
+            A.ACTOR_NAME,
+            COUNT(*) AS TOTAL_TITLES
+        FROM ANALYTICS.BRIDGE_CONTENT_ACTOR B
+        JOIN ANALYTICS.DIM_ACTOR A
+            ON B.PERSON_ID = A.PERSON_ID
+        GROUP BY A.ACTOR_NAME
+        ORDER BY TOTAL_TITLES DESC
+        LIMIT 20
+    """)
+def get_highest_rated_actors():
+
+    return run_query("""
+        SELECT
+            A.ACTOR_NAME,
+            ROUND(AVG(F.IMDB_SCORE),2) AS AVG_IMDB,
+            COUNT(*) AS TITLES
+        FROM ANALYTICS.BRIDGE_CONTENT_ACTOR B
+
+        JOIN ANALYTICS.DIM_ACTOR A
+            ON B.PERSON_ID=A.PERSON_ID
+
+        JOIN ANALYTICS.FACT_CONTENT F
+            ON B.CONTENT_ID=F.ID
+
+        WHERE F.IMDB_SCORE IS NOT NULL
+
+        GROUP BY A.ACTOR_NAME
+
+        HAVING COUNT(*) >= 3
+
+        ORDER BY AVG_IMDB DESC
+
+        LIMIT 20
+    """)
+
+def get_actor_list():
+
+    return run_query("""
+        SELECT
+            ACTOR_NAME
+        FROM ANALYTICS.DIM_ACTOR
+        ORDER BY ACTOR_NAME
+    """)
+def get_actor_filmography(actor):
+
+    return run_query(f"""
+        SELECT
+            F.TITLE,
+            F.RELEASE_YEAR,
+            F.TYPE,
+            F.IMDB_SCORE
+        FROM ANALYTICS.BRIDGE_CONTENT_ACTOR B
+
+        JOIN ANALYTICS.DIM_ACTOR A
+            ON B.PERSON_ID=A.PERSON_ID
+
+        JOIN ANALYTICS.FACT_CONTENT F
+            ON B.CONTENT_ID=F.ID
+
+        WHERE A.ACTOR_NAME = '{actor}'
+
+        ORDER BY F.RELEASE_YEAR DESC
+    """)
+def get_top_directors():
+
+    return run_query("""
+        SELECT
+            D.DIRECTOR_NAME,
+            COUNT(*) AS TOTAL_TITLES
+        FROM ANALYTICS.BRIDGE_CONTENT_DIRECTOR B
+
+        JOIN ANALYTICS.DIM_DIRECTOR D
+            ON B.PERSON_ID = D.PERSON_ID
+
+        GROUP BY D.DIRECTOR_NAME
+
+        ORDER BY TOTAL_TITLES DESC
+
+        LIMIT 20
+    """)
+
+def get_highest_rated_directors():
+
+    return run_query("""
+        SELECT
+            D.DIRECTOR_NAME,
+            ROUND(AVG(F.IMDB_SCORE),2) AS AVG_IMDB,
+            COUNT(*) AS TITLES
+        FROM ANALYTICS.BRIDGE_CONTENT_DIRECTOR B
+
+        JOIN ANALYTICS.DIM_DIRECTOR D
+            ON B.PERSON_ID = D.PERSON_ID
+
+        JOIN ANALYTICS.FACT_CONTENT F
+            ON B.CONTENT_ID = F.ID
+
+        WHERE F.IMDB_SCORE IS NOT NULL
+
+        GROUP BY D.DIRECTOR_NAME
+
+        HAVING COUNT(*) >= 3
+
+        ORDER BY AVG_IMDB DESC
+
+        LIMIT 20
+    """)
+
+def get_director_list():
+
+    return run_query("""
+        SELECT
+            DIRECTOR_NAME
+        FROM ANALYTICS.DIM_DIRECTOR
+        ORDER BY DIRECTOR_NAME
+    """)
+
+def get_director_filmography(director):
+
+    return run_query(f"""
+        SELECT
+            F.TITLE,
+            F.RELEASE_YEAR,
+            F.TYPE,
+            F.IMDB_SCORE
+        FROM ANALYTICS.BRIDGE_CONTENT_DIRECTOR B
+
+        JOIN ANALYTICS.DIM_DIRECTOR D
+            ON B.PERSON_ID = D.PERSON_ID
+
+        JOIN ANALYTICS.FACT_CONTENT F
+            ON B.CONTENT_ID = F.ID
+
+        WHERE D.DIRECTOR_NAME = '{director}'
+
+        ORDER BY F.RELEASE_YEAR DESC
+    """)
+
+def get_country_ratings():
+
+    return run_query("""
+        SELECT
+            C.COUNTRY,
+            ROUND(AVG(F.IMDB_SCORE),2) AS AVG_IMDB
+        FROM ANALYTICS.BRIDGE_CONTENT_COUNTRY C
+
+        JOIN ANALYTICS.FACT_CONTENT F
+            ON C.CONTENT_ID = F.ID
+
+        WHERE F.IMDB_SCORE IS NOT NULL
+
+        GROUP BY C.COUNTRY
+
+        HAVING COUNT(*) >= 5
+
+        ORDER BY AVG_IMDB DESC
+    """)
+
+def get_genre_ratings():
+
+    return run_query("""
+        SELECT
+            G.GENRE,
+            ROUND(AVG(F.IMDB_SCORE),2) AS AVG_IMDB
+        FROM ANALYTICS.BRIDGE_CONTENT_GENRE G
+
+        JOIN ANALYTICS.FACT_CONTENT F
+            ON G.CONTENT_ID = F.ID
+
+        WHERE F.IMDB_SCORE IS NOT NULL
+
+        GROUP BY G.GENRE
+
+        ORDER BY AVG_IMDB DESC
+    """)
+
+def get_top_genres():
+
+    return run_query("""
+        SELECT
+            GENRE,
+            COUNT(*) AS TOTAL_TITLES
+        FROM ANALYTICS.BRIDGE_CONTENT_GENRE
+        GROUP BY GENRE
+        ORDER BY TOTAL_TITLES DESC
+        LIMIT 20
+    """)
+
+def get_top_countries():
+
+    return run_query("""
+        SELECT
+            COUNTRY,
+            COUNT(*) AS TOTAL_TITLES
+        FROM ANALYTICS.BRIDGE_CONTENT_COUNTRY
+        GROUP BY COUNTRY
+        ORDER BY TOTAL_TITLES DESC
+        LIMIT 20
+    """)

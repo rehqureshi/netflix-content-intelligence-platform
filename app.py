@@ -1,4 +1,7 @@
 import streamlit as st
+from utils.ui import show_header
+
+show_header("Netflix Content Intelligence Platform")
 
 st.set_page_config(
     page_title="Netflix Content Intelligence Platform",
@@ -7,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.title("🎬 Netflix Content Intelligence Platform")
+
 
 st.markdown("""
 Welcome to the **Netflix Content Intelligence Platform**.

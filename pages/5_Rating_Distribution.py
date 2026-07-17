@@ -1,5 +1,6 @@
 import streamlit as st
 import plotly.express as px
+from utils.ui import show_header
 
 from utils.queries import *
 
@@ -9,7 +10,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("⭐ Rating Distribution")
+show_header("Rating Distribution")
 
 # ----------------------------------
 # IMDb Distribution
@@ -21,7 +22,8 @@ fig = px.histogram(
     imdb,
     x="IMDB_SCORE",
     nbins=20,
-    title="IMDb Rating Distribution"
+    title="IMDb Rating Distribution",
+    color_discrete_sequence=["#E50914"]
 )
 
 fig.update_layout(height=450)
@@ -38,7 +40,8 @@ fig = px.histogram(
     tmdb,
     x="TMDB_SCORE",
     nbins=20,
-    title="TMDB Rating Distribution"
+    title="TMDB Rating Distribution",
+    color_discrete_sequence=["#E50914"]
 )
 
 fig.update_layout(height=450)
@@ -56,7 +59,8 @@ fig = px.bar(
     x="AGE_CERTIFICATION",
     y="TOTAL",
     text="TOTAL",
-    title="Content by Age Certification"
+    title="Content by Age Certification",
+    color_discrete_sequence=["#E50914"]
 )
 
 fig.update_layout(height=500)

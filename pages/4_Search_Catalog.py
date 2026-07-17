@@ -1,159 +1,99 @@
 import streamlit as st
+from utils.ui import show_header
 
-from utils.queries import get_catalog
+from utils.queries import (
+    get_catalog_details,
+    get_actors,
+    get_directors,
+    get_genres,
+    get_countries
+)
 
 st.set_page_config(
     page_title="Search Catalog",
-    page_icon="🔍",
+    page_icon="🎬",
     layout="wide"
 )
 
-st.title("🔍 Search & Explore Netflix Catalog")
+show_header("Search Netflix Catalog")
 
-# ----------------------------------
-# Load Data
-# ----------------------------------
+catalog = get_catalog_details()
 
-df = get_catalog()
-
-# ----------------------------------
-# Sidebar Filters
-# ----------------------------------
-
-st.sidebar.header("Filters")
-
-# Content Type
-
-content_type = st.sidebar.multiselect(
-    "Content Type",
-    options=sorted(df["TYPE"].dropna().unique()),
-    default=sorted(df["TYPE"].dropna().unique())
+selected_title = st.selectbox(
+    "Select a Title",
+    catalog["TITLE"]
 )
 
-# Release Year
+movie = catalog[catalog["TITLE"] == selected_title].iloc[0]
 
-min_year = int(df["RELEASE_YEAR"].min())
-max_year = int(df["RELEASE_YEAR"].max())
+content_id = movie["ID"]
 
-year_range = st.sidebar.slider(
-    "Release Year",
-    min_year,
-    max_year,
-    (min_year, max_year)
-)
-
-# IMDb Rating
-
-rating = st.sidebar.slider(
-    "Minimum IMDb Rating",
-    0.0,
-    10.0,
-    0.0,
-    0.1
-)
-
-# Runtime
-
-min_runtime = int(df["RUNTIME"].fillna(0).min())
-max_runtime = int(df["RUNTIME"].fillna(0).max())
-
-runtime = st.sidebar.slider(
-    "Maximum Runtime (Minutes)",
-    min_runtime,
-    max_runtime,
-    max_runtime
-)
-
-# Search Box
-
-search = st.text_input(
-    "Search by Title"
-)
-
-# ----------------------------------
-# Apply Filters
-# ----------------------------------
-
-filtered = df.copy()
-
-filtered = filtered[
-    filtered["TYPE"].isin(content_type)
-]
-
-filtered = filtered[
-    (filtered["RELEASE_YEAR"] >= year_range[0]) &
-    (filtered["RELEASE_YEAR"] <= year_range[1])
-]
-
-filtered = filtered[
-    filtered["IMDB_SCORE"].fillna(0) >= rating
-]
-
-filtered = filtered[
-    filtered["RUNTIME"].fillna(0) <= runtime
-]
-
-if search:
-
-    filtered = filtered[
-        filtered["TITLE"].str.contains(
-            search,
-            case=False,
-            na=False
-        )
-    ]
-
-# ----------------------------------
-# KPI Cards
-# ----------------------------------
-
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    st.metric(
-        "Matching Titles",
-        len(filtered)
-    )
+    st.metric("Type", movie["TYPE"])
 
 with col2:
-    st.metric(
-        "Movies",
-        len(filtered[filtered["TYPE"] == "MOVIE"])
-    )
+    st.metric("Release Year", int(movie["RELEASE_YEAR"]))
 
 with col3:
-    st.metric(
-        "TV Shows",
-        len(filtered[filtered["TYPE"] == "SHOW"])
-    )
+    imdb = movie["IMDB_SCORE"] if movie["IMDB_SCORE"] is not None else "N/A"
+    st.metric("IMDb", imdb)
+
+with col4:
+    tmdb = movie["TMDB_SCORE"] if movie["TMDB_SCORE"] is not None else "N/A"
+    st.metric("TMDB", tmdb)
 
 st.divider()
 
-# ----------------------------------
-# Results
-# ----------------------------------
+# ------------------------
+# Director
+# ------------------------
 
-st.subheader("Search Results")
+st.subheader("🎬 Director")
 
-st.dataframe(
-    filtered.sort_values(
-        by="IMDB_SCORE",
-        ascending=False,
-        na_position="last"
-    ),
-    use_container_width=True,
-    hide_index=True
-)
+directors = get_directors(content_id)
 
-# ----------------------------------
-# Download Button
-# ----------------------------------
+if directors.empty:
+    st.info("No director information available.")
+else:
+    st.write(", ".join(directors["DIRECTOR_NAME"]))
 
-csv = filtered.to_csv(index=False).encode("utf-8")
+# ------------------------
+# Actors
+# ------------------------
 
-st.download_button(
-    label="📥 Download Filtered Data",
-    data=csv,
-    file_name="netflix_filtered_catalog.csv",
-    mime="text/csv"
-)
+st.subheader("🎭 Actors")
+
+actors = get_actors(content_id)
+
+if actors.empty:
+    st.info("No actor information available.")
+else:
+    st.write(", ".join(actors["ACTOR_NAME"]))
+
+# ------------------------
+# Genres
+# ------------------------
+
+st.subheader("🎯 Genres")
+
+genres = get_genres(content_id)
+
+if genres.empty:
+    st.info("No genres available.")
+else:
+    st.write(", ".join(genres["GENRE"]))
+
+# ------------------------
+# Countries
+# ------------------------
+
+st.subheader("🌍 Production Countries")
+
+countries = get_countries(content_id)
+
+if countries.empty:
+    st.info("No country information available.")
+else:
+    st.write(", ".join(countries["COUNTRY"]))

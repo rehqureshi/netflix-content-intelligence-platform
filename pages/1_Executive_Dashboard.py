@@ -1,3 +1,4 @@
+from utils.ui import show_header
 import streamlit as st
 import plotly.express as px
 
@@ -5,7 +6,20 @@ from utils.queries import *
 
 st.set_page_config(layout="wide")
 
-st.title("📊 Executive Dashboard")
+show_header("Executive Dashboard")
+
+NETFLIX_COLORS = [
+    "#E50914",
+    "#B20710",
+    "#F40612",
+    "#831010",
+    "#5C0000",
+    "#C11119",
+    "#FF4C4C",
+    "#8B0000",
+    "#D72638",
+    "#660000"
+]
 
 # -----------------------------
 # KPIs
@@ -81,7 +95,8 @@ with left:
         pie,
         values="TOTAL",
         names="TYPE",
-        title="Movies vs TV Shows"
+        title="Movies vs TV Shows",
+        color_discrete_sequence=NETFLIX_COLORS
     )
 
     st.plotly_chart(
@@ -99,7 +114,8 @@ with right:
         x="RELEASE_YEAR",
         y="TOTAL",
         markers=True,
-        title="Titles Released by Year"
+        title="Titles Released by Year",
+        color_discrete_sequence=["#E50914"]
     )
 
     st.plotly_chart(
